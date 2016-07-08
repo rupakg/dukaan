@@ -1,0 +1,6 @@
+# check https://github.com/spree/spree#getting-started
+$ gem install rails -v 4.2.6
+$ brew install imagemagick
+$ rails _4.2.6_ new dstore
+$ cd dstore
+

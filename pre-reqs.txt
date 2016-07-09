@@ -1,6 +1,41 @@
-# check https://github.com/spree/spree#getting-started
+# Getting Started: https://github.com/spree/spree#getting-started
+
+# Installation
 $ gem install rails -v 4.2.6
 $ brew install imagemagick
-$ rails _4.2.6_ new dstore
-$ cd dstore
+$ rails _4.2.6_ new estore
+$ cd estore
 
+# Steps to add Spree to rails store
+
+# Add Spree gems to your Gemfile:
+
+gem 'spree', '~> 3.1.0'
+gem 'spree_auth_devise', '~> 3.1.0'
+gem 'spree_gateway', '~> 3.1.0'
+
+$ bundle install
+
+# Use the install generators to set up Spree:
+
+# default install of spree
+$ rails g spree:install --user_class=Spree::User
+# OR for no migrations, no sample data run:
+$ rails g spree:install --migrate=false --sample=false --seed=false
+# and then run migrations and load data separately later by:
+$ bundle exec rake railties:install:migrations
+$ bundle exec rake db:migrate
+$ bundle exec rake db:seed
+$ bundle exec rake spree_sample:load
+
+# install other modules
+$ rails g spree:auth:install
+$ rails g spree_gateway:install
+
+# Browse Store
+
+http://localhost:3000
+
+#Browse Admin Interface
+
+http://localhost:3000/admin
